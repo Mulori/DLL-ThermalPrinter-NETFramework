@@ -1,0 +1,48 @@
+*PARA UTILIZAR A BIBLIOTECA EM C#, ADICIONE O ARQUIVO DA DLL EM REFERENCIAS > ADICIONAR REFERENCIAS*
+
+SCRIPT DE TESTE ABAIXO:
+
+
+SerialPort _serialPort = new SerialPort();
+            _serialPort.PortName = "COM5";
+            _serialPort.Open();
+            var print = new LibraryThermalPrinter_NET_Framework.ThermalPrinter(_serialPort, 1,1,2);
+            print.WriteLine("");
+            print.SetAlignCenter();
+            print.BoldOn();
+            print.WriteLine_Big("Obrigado pela \nPreferencia!");
+            print.BoldOff();
+            print.SetAlignCenter();
+            print.WriteLine("");
+            print.WriteLine("Esta e a primeira linha");
+            print.SetAlignCenter();
+            print.WriteLine("Esta e a terceira linha");
+            print.SetAlignCenter();
+            print.WriteLine("Esta e a quarta linha");
+            print.SetAlignCenter();
+            print.WriteLine("Esta e a quinta linha");
+            print.SetAlignCenter();
+            print.WriteLine("Esta e a sexta linha");
+            print.SetAlignCenter();
+            print.WriteLine("Esta e a setima linha");
+            print.SetAlignCenter();
+            print.WriteLine("Esta e a oitava linha");
+            print.SetAlignCenter();
+            print.WriteLine("Esta e a nona linha");
+            print.SetAlignCenter();
+            print.WriteLine("Esta e a decima linha");
+            print.SetAlignCenter();
+
+            print.LineFeed();
+
+            print.SetLargeBarcode(true);
+            print.PrintBarcode(LibraryThermalPrinter_NET_Framework.ThermalPrinter.BarcodeType.code39, "999925");
+            print.SetAlignCenter();
+            print.BoldOn();
+            print.WriteLine_Big("999925");
+            print.BoldOff();
+            print.SetAlignCenter();
+
+            print.LineFeed();
+
+            _serialPort.Close();
